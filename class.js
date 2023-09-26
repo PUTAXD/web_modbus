@@ -16,7 +16,7 @@ class motor {
 
     let used_val = _value;
     if (_value < 0) {
-      used_val = 65536 + _value;
+      used_val = 65536 + Number(_value);
     }
 
     console.log(used_val);
@@ -30,6 +30,7 @@ class motor {
 
     data.writeUInt8(_register >> 8, 8);
     data.writeUInt8(_register & 255, 9);
+
     data.writeUInt8(used_val >> 8, 10);
     data.writeUInt8(used_val & 255, 11);
 
