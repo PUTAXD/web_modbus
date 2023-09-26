@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  min-width: 100px;
+  height: 100px;
+  justify-content: center;
+  background-color: red;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

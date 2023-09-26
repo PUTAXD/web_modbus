@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Client</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        display: flex;
+        min-width: 100px;
+        justify-content: center;
+        /* background-color: red; */
+      }
+      .motor {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="motor 1">
+        <h2>Motor 1</h2>
+        <form action="">
+          <label>Function code : Write(6);Read(3)</label><br />
+          <input type="text" id="functionCode" value="6" /><br />
+
+          <label>Register : </label><br />
+          <input type="text" id="register" name="" value="514" /><br />
+
+          <label for="lname">Value : </label><br />
+          <input type="text" id="value" name="" value="100" /><br />
+
+          <button id="send-button1">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div id="message"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // Inisialisasi socket.io
+      const socket = io();
+
+      // Menghandle klik tombol Kirim
+      // document.addEventListener("DOMContentLoaded", function () {
+      document
+        .getElementById("send-button1")
+        .addEventListener("click", function () {
+          let message = [];
+
+          const functionCode = document.getElementById("functionCode");
+          message[0] = functionCode.value;
+
+          const register = document.getElementById("register");
+          message[1] = register.value;
+
+          const value = document.getElementById("value");
+          message[2] = value.value;
+
+          if (message) {
+            // Mengirim pesan ke server melalui socket.io
+            socket.emit("motor1", message);
+
+            // Mengosongkan input pesan
+            functionCode.value = "";
+            register.value = "";
+            value.value = "";
+          }
+          // console.log("Azzam KOntol");
+        });
+
+      // Menghandle pesan yang diterima dari server
+      // socket.on("msgServer", function (msg) {
+      //   console.log(msg);
+      // });
+      // });
+    </script>
+  </body>
+</html>
