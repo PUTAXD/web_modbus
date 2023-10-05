@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Client</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        display: flex;
+        min-width: 100px;
+        justify-content: center;
+      }
+      .motor {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="motor 1">
+        <h2>Motor 1</h2>
+        <form action="">
+          <label>Function code : Write(6);Read(3)</label><br />
+          <input type="text" id="functionCode1" value="6" /><br />
+          <label>Register : </label><br />
+          <input type="text" id="register1" name="" value="514" /><br />
+
+          <label for="lname">Value : </label><br />
+          <input type="text" id="value1" name="" value="100" /><br />
+
+          <button id="send-button1">Send</button>
+        </form>
+      </div>
+      <div class="motor 2">
+        <h2>Motor 2</h2>
+        <form action="">
+          <label>Function code : Write(6);Read(3)</label><br />
+          <input type="text" id="functionCode2" value="6" /><br />
+          <label>Register : </label><br />
+          <input type="text" id="register2" name="" value="514" /><br />
+
+          <label for="lname">Value : </label><br />
+          <input type="text" id="value2" name="" value="100" /><br />
+
+          <button id="send-button2">Send</button>
+        </form>
+      </div>
+      <div class="motor 3">
+        <h2>Motor 3</h2>
+        <form action="">
+          <label>Function code : Write(6);Read(3)</label><br />
+          <input type="text" id="functionCode3" value="6" /><br />
+          <label>Register : </label><br />
+          <input type="text" id="register3" name="" value="514" /><br />
+
+          <label for="lname">Value : </label><br />
+          <input type="text" id="value3" name="" value="100" /><br />
+
+          <button id="send-button3">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      Message: <br />
+      <div id="message"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+//just a test
 const net = require("net");
 const motor = require("./class.js");
 const { timeStamp } = require("console");
@@ -7,16 +8,10 @@ const motor1 = new motor("169.254.196.196", 1296, 1);
 const motor2 = new motor("169.254.196.197", 1297, 2);
 const motor3 = new motor("169.254.196.198", 1298, 3);
 
-client.connect(motor1.port, motor1.ip, () => {
+client.connect(motor2.port, motor2.ip, () => {
   console.log("Terhubung ke server.");
 
-  setInterval(() => {
-    // Kode yang akan dijalankan secara berulang di sini
-    const sekarang = new Date();
-    const detik = 100 + sekarang.getSeconds();
-    client.write(motor1.modbusWrite(motor1.slave_id, 6, 514, detik));
-    console.log("Hello, World!");
-  }, 1000);
+  client.write(motor2.modbusWrite(motor2.slave_id, 6, 514, 100));
 });
 
 client.on("data", (data) => {
